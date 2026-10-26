@@ -48,3 +48,35 @@ result = ["A"]
 stack = ["C"]
 result = ["A", "B"]
 
+#6 If steps to root is 2, BFS Pre-order Left to Right
+# queue = deque([(root, 0)])
+# while queue: 
+#     node, depth = queue.popleft() 
+    
+#     if depth == 2: result.append(node.val) 
+    
+#     for child in node.children: 
+#         queue.append((child, depth + 1)) 
+
+# stack = [(root, 0)] 
+
+#7 If steps to root is = 3, DFS Pre-order Right to Left
+while stack: 
+    node, depth = stack.pop() 
+
+    if depth == 3: 
+        result.append(node.val) 
+
+    for child in node.children: 
+        stack.append((child, depth + 1))
+
+#8 If no children, DFS Pre-order Left to Right (So if a leaf?)
+# stack = [root] 
+# while stack: 
+#     node = stack.pop() 
+#     if not node.children: 
+#         result.append(node.val) 
+#     if len(result) == 3: 
+#         return result 
+#     for child in reversed(node.children): 
+#         stack.append(child)
